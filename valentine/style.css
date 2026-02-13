@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating Hearts Background Animation */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    animation: float 15s infinite;
+    opacity: 0;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -20px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: 20px;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.heart:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+    animation-duration: 15s;
+}
+
+.heart:nth-child(3) {
+    left: 40%;
+    animation-delay: 4s;
+    animation-duration: 18s;
+}
+
+.heart:nth-child(4) {
+    left: 60%;
+    animation-delay: 1s;
+    animation-duration: 14s;
+}
+
+.heart:nth-child(5) {
+    left: 75%;
+    animation-delay: 3s;
+    animation-duration: 16s;
+}
+
+.heart:nth-child(6) {
+    left: 90%;
+    animation-delay: 5s;
+    animation-duration: 13s;
+}
+
+@keyframes float {
+    0% {
+        bottom: -60px;
+        opacity: 0;
+        transform: rotate(45deg) translateX(0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: rotate(45deg) translateX(100px);
+    }
+}
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 2;
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    color: #d63384;
+    font-size: 3em;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.image-container {
+    margin: 30px 0;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.cute-gif {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    animation: yesGlow 2s ease-in-out infinite;
+}
+
+@keyframes yesGlow {
+    0%, 100% {
+        box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    }
+    50% {
+        box-shadow: 0 5px 30px rgba(245, 87, 108, 0.8);
+    }
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #666;
+}
+
+.no-btn:hover {
+    transform: scale(0.95);
+}
+
+.no-btn:active {
+    transform: scale(0.9);
+}
